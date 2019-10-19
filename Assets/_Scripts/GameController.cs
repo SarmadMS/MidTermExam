@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//Name SarmadSiddiqi
+//ID 300978624
 public class GameController : MonoBehaviour
 {
     [Header("Scene Game Objects")]
@@ -28,6 +30,7 @@ public class GameController : MonoBehaviour
     public Text highScoreLabel;
 
     public GameObject scoreBoard;
+   
 
     [Header("UI Control")]
     public GameObject startLabel;
@@ -50,7 +53,9 @@ public class GameController : MonoBehaviour
             if (scoreBoard.GetComponent<Scoreboard>().lives < _lives)
             {
                 scoreBoard.GetComponent<Scoreboard>().lives = _lives;
-            }
+            }  
+            
+            
             if (_lives < 1)
             {
                 
@@ -75,32 +80,46 @@ public class GameController : MonoBehaviour
         {
             _score = value;
 
-            
 
-           if (scoreBoard.GetComponent<Scoreboard>().score < _score)
+           
+
+            if (scoreBoard.GetComponent<Scoreboard>().highScore < _score)
             {
                 scoreBoard.GetComponent<Scoreboard>().score = _score;
+                scoreBoard.GetComponent<Scoreboard>().highScore = _score;
             }
-           if (_score >= 500)
+
+            
+
+            if (_score >= 500)
             {
                 SceneManager.LoadScene("Level2");
+               
             }
+
             scoreLabel.text = "Score: " + _score.ToString();
         }
     }
+
+
+   
 
     // Start is called before the first frame update
     void Start()
     {
         GameObjectInitialization();
         SceneConfiguration();
-       
+
+        
+
+
+
     }
 
     private void GameObjectInitialization()
     {
+        
         scoreBoard = GameObject.Find("Scoreboard");
-
         startLabel = GameObject.Find("StartLabel");
         endLabel = GameObject.Find("EndLabel");
         startButton = GameObject.Find("StartButton");
@@ -147,13 +166,12 @@ public class GameController : MonoBehaviour
                 startLabel.SetActive(false);
                 startButton.SetActive(false);
                 activeSoundClip = SoundClip.NONE;
-                highScoreLabel.text = "High Score: " + scoreBoard.GetComponent<Scoreboard>().score;
+                highScoreLabel.text = "High Score: " + scoreBoard.GetComponent<Scoreboard>().highScore;
                 break;
 
 
                
         }
-        
 
 
         if ((activeSoundClip != SoundClip.NONE) && (activeSoundClip != SoundClip.NUM_OF_CLIPS))
@@ -182,12 +200,14 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+
     }
 
     // Event Handlers
     public void OnStartButtonClick()
     {
         DontDestroyOnLoad(scoreBoard);
+       
         SceneManager.LoadScene("Main");
     }
 

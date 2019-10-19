@@ -29,7 +29,8 @@ public class IslandController : MonoBehaviour
     /// </summary>
     void Move()
     {
-        switch(SceneManager.GetActiveScene().name) {
+        switch(SceneManager.GetActiveScene().name)
+        { //Used SwitchCase to switch directions between levels
 
             case "Main":
                 Vector2 newPosition = new Vector2(0.0f, Speed);
@@ -58,7 +59,7 @@ public class IslandController : MonoBehaviour
     void Reset()
     {
         switch (SceneManager.GetActiveScene().name)
-        {
+        { //Used SwitchCase to switch Reset's
 
             case "Main":
                 float randomXPosition = Random.Range(boundary.Left, boundary.Right);

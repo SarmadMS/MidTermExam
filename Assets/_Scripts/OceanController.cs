@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Name SarmadSiddiqi
+//ID 300978624
 public class OceanController : MonoBehaviour
 {
     public float Speed = 0.1f;
@@ -27,7 +29,8 @@ public class OceanController : MonoBehaviour
     /// </summary>
     void Move()
     {
-        switch (SceneManager.GetActiveScene().name) {
+        switch (SceneManager.GetActiveScene().name)
+        { //Used SwitchCase to switch directions between levels
 
             case "Main":
                 Vector2 newPosition = new Vector2(0.0f, Speed);
@@ -58,7 +61,7 @@ public class OceanController : MonoBehaviour
     void Reset()
     {
         switch (SceneManager.GetActiveScene().name)
-        {
+        { //Used SwitchCase to switch Reset's
 
             case "Main":
                 transform.position = new Vector2(0.0f, resetPosition);

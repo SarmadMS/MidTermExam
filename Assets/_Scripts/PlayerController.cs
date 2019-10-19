@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Util;
 
+//Name SarmadSiddiqi
+//ID 300978624
 public class PlayerController : MonoBehaviour
 {
     public Speed speed;
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
     public void Move()
     {
         Vector2 newPosition = transform.position;
-        switch (SceneManager.GetActiveScene().name)
+        switch (SceneManager.GetActiveScene().name) //Used SwitchCase to switch directions between levels
         {
             case "Main":
                 if (Input.GetAxis("Horizontal") > 0.0f)

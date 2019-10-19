@@ -615,6 +615,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1574954306379881997, guid: b63deab0db2ba614ebe4437e3b7867eb,
         type: 3}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
+      propertyPath: scoreBoard
+      value: 
+      objectReference: {fileID: 5217392349645941493, guid: a8a3813ac4a8fb441a053f057efcd5da,
+        type: 3}
     - target: {fileID: 6258031004218500823, guid: 0cd6714592b08874d95701663d2115fa,
         type: 3}
       propertyPath: m_LocalPosition.x

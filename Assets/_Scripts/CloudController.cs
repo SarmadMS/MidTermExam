@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Util;
 
+//Name SarmadSiddiqi
+//ID 300978624
 public class CloudController : MonoBehaviour
 {
     [Header("Speed Values")]
@@ -49,7 +51,7 @@ public class CloudController : MonoBehaviour
     /// </summary>
     void Reset()
     {
-        switch (SceneManager.GetActiveScene().name)
+        switch (SceneManager.GetActiveScene().name) //Used SwitchCase to switch directions between levels
         {
             case "Main":
                 horizontalSpeed = Random.Range(horizontalSpeedRange.min, horizontalSpeedRange.max);
@@ -78,7 +80,7 @@ public class CloudController : MonoBehaviour
     void CheckBounds()
     {
         switch (SceneManager.GetActiveScene().name)
-        {
+        { //Used SwitchCase to switch Reset's
 
             case "Main":
                 if (transform.position.y <= boundary.Bottom)
