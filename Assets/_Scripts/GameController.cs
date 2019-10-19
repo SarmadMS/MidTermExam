@@ -72,10 +72,10 @@ public class GameController : MonoBehaviour
 
             
 
-            if (highScore.GetComponent<HighScore>().score < _score)
+           /* if (highScore.GetComponent<HighScore>().score < _score)
             {
                 highScore.GetComponent<HighScore>().score = _score;
-            }
+            }*/
             scoreLabel.text = "Score: " + _score.ToString();
         }
     }

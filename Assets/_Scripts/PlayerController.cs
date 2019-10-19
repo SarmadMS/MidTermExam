@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Util;
 
 public class PlayerController : MonoBehaviour
@@ -31,24 +32,75 @@ public class PlayerController : MonoBehaviour
     public void Move()
     {
         Vector2 newPosition = transform.position;
-
-        if(Input.GetAxis("Horizontal") > 0.0f)
+        switch (SceneManager.GetActiveScene().name)
         {
-            newPosition += new Vector2(speed.max, 0.0f);
-        }
+            case "Main":
+                if (Input.GetAxis("Horizontal") > 0.0f)
+                {
+                    newPosition += new Vector2(speed.max, 0.0f);
+                }
 
-        if (Input.GetAxis("Horizontal") < 0.0f)
-        {
-            newPosition += new Vector2(speed.min, 0.0f);
-        }
+                if (Input.GetAxis("Horizontal") < 0.0f)
+                {
+                    newPosition += new Vector2(speed.min, 0.0f);
+                }
 
-        transform.position = newPosition;
+                transform.position = newPosition;
+                break;
+
+            case "Level2":
+                if (Input.GetAxis("Vertical") > 0.0f)
+                {
+                    newPosition += new Vector2(0.0f,speed.max);
+                }
+
+                if (Input.GetAxis("Vertical") < 0.0f)
+                {
+                    newPosition += new Vector2(0.0f, speed.min);
+                }
+
+                transform.position = newPosition;
+
+                break;
+
+        }
+        
     }
 
     public void CheckBounds()
     {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Main":
+                if (transform.position.x > boundary.Right)
+                {
+                    transform.position = new Vector2(boundary.Right, transform.position.y);
+                }
+
+                // check left boundary
+                if (transform.position.x < boundary.Left)
+                {
+                    transform.position = new Vector2(boundary.Left, transform.position.y);
+                }
+                break;
+
+            case "Level2":
+                if (transform.position.y > boundary.Top)
+                {
+                    transform.position = new Vector2(transform.position.x, boundary.Top);
+                }
+
+                // check left boundary
+                if (transform.position.y < boundary.Bottom)
+                {
+                    transform.position = new Vector2(transform.position.x, boundary.Bottom);
+                }
+
+                break;
+
+        }
         // check right boundary
-        if(transform.position.x > boundary.Right)
+        if (transform.position.x > boundary.Right)
         {
             transform.position = new Vector2(boundary.Right, transform.position.y);
         }
