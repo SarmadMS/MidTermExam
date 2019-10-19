@@ -560,6 +560,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
         type: 3}
+      propertyPath: clouds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
       propertyPath: livesLabel
       value: 
       objectReference: {fileID: 748744465}
@@ -596,8 +601,20 @@ PrefabInstance:
     - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
         type: 3}
       propertyPath: numberOfClouds
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
+      propertyPath: cloud
+      value: 
+      objectReference: {fileID: 9074808367491340135, guid: 3b91e4f8855ce4d40b696533ed57a7b0,
+        type: 3}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
+      propertyPath: island
+      value: 
+      objectReference: {fileID: 1574954306379881997, guid: b63deab0db2ba614ebe4437e3b7867eb,
+        type: 3}
     - target: {fileID: 6258031004218500823, guid: 0cd6714592b08874d95701663d2115fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -782,6 +799,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 314038372, guid: 63211e44b836615489776d2977dd9452, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384263815, guid: 63211e44b836615489776d2977dd9452, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508726596, guid: 63211e44b836615489776d2977dd9452, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999537804, guid: 63211e44b836615489776d2977dd9452, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007635035, guid: 63211e44b836615489776d2977dd9452, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63211e44b836615489776d2977dd9452, type: 3}
 --- !u!114 &6485742443663585370 stripped

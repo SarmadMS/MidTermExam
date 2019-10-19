@@ -95,18 +95,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeedRange:
-    min: -0.01
-    max: 0.01
+    min: -0.005
+    max: 0.005
   verticalSpeedRange:
     min: 0.05
     max: 0.08
-  verticalSpeed: 0
-  horizontalSpeed: 0
+  verticalSpeed: -0.01
+  horizontalSpeed: 0.01
   boundary:
-    Top: 3.28
-    Right: 2.063
-    Bottom: -3.28
-    Left: -2.063
+    Top: 3.3
+    Right: 2.1
+    Bottom: -3.3
+    Left: -2.1
 --- !u!60 &6213664311500089984
 PolygonCollider2D:
   m_ObjectHideFlags: 0

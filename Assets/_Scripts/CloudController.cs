@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Util;
 
 public class CloudController : MonoBehaviour
@@ -48,11 +49,26 @@ public class CloudController : MonoBehaviour
     /// </summary>
     void Reset()
     {
-        horizontalSpeed = Random.Range(horizontalSpeedRange.min, horizontalSpeedRange.max);
-        verticalSpeed = Random.Range(verticalSpeedRange.min, verticalSpeedRange.max);
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Main":
+                horizontalSpeed = Random.Range(horizontalSpeedRange.min, horizontalSpeedRange.max);
+                verticalSpeed = Random.Range(verticalSpeedRange.min, verticalSpeedRange.max);
 
-        float randomXPosition = Random.Range(boundary.Left, boundary.Right);
-        transform.position = new Vector2(randomXPosition, Random.Range(boundary.Top, boundary.Top + 2.0f));
+                float randomXPosition = Random.Range(boundary.Left, boundary.Right);
+                transform.position = new Vector2(randomXPosition, Random.Range(boundary.Top, boundary.Top + 2.0f));
+                break;
+
+            case "Level2":
+
+                horizontalSpeed = Random.Range(verticalSpeedRange.min, verticalSpeedRange.max);
+                verticalSpeed = Random.Range(horizontalSpeedRange.min, horizontalSpeedRange.max);
+
+                float randomYPosition = Random.Range(boundary.Top, boundary.Bottom);
+                transform.position = new Vector2(Random.Range(boundary.Right, boundary.Right + 2.0f), randomYPosition);
+                break;
+        }
+       
     }
 
     /// <summary>
@@ -61,9 +77,24 @@ public class CloudController : MonoBehaviour
     /// </summary>
     void CheckBounds()
     {
-        if (transform.position.y <= boundary.Bottom)
+        switch (SceneManager.GetActiveScene().name)
         {
-            Reset();
+
+            case "Main":
+                if (transform.position.y <= boundary.Bottom)
+                {
+                    Reset();
+                }
+                break;
+
+            case "Level2":
+                if (transform.position.x <= boundary.Left)
+                {
+                    Reset();
+                }
+                break;
+
+
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Util;
 
 public class IslandController : MonoBehaviour
 {
-    public float verticalSpeed = 0.05f;
+    public float Speed = 0.05f;
 
 
     public Boundary boundary;
@@ -28,11 +29,27 @@ public class IslandController : MonoBehaviour
     /// </summary>
     void Move()
     {
-        Vector2 newPosition = new Vector2(0.0f, verticalSpeed);
-        Vector2 currentPosition = transform.position;
+        switch(SceneManager.GetActiveScene().name) {
 
-        currentPosition -= newPosition;
-        transform.position = currentPosition;
+            case "Main":
+                Vector2 newPosition = new Vector2(0.0f, Speed);
+            Vector2 currentPosition = transform.position;
+            currentPosition -= newPosition;
+            transform.position = currentPosition;
+
+            break;
+
+        case "Level2":
+
+                Vector2 newPosition2 = new Vector2(Speed, 0.0f);
+            Vector2 currentPosition2 = transform.position;
+            currentPosition2 -= newPosition2;
+            transform.position = currentPosition2;
+            break;
+
+
+        }
+       
     }
 
     /// <summary>
@@ -40,8 +57,22 @@ public class IslandController : MonoBehaviour
     /// </summary>
     void Reset()
     {
-        float randomXPosition = Random.Range(boundary.Left, boundary.Right);
-        transform.position = new Vector2(randomXPosition, boundary.Top);
+        switch (SceneManager.GetActiveScene().name)
+        {
+
+            case "Main":
+                float randomXPosition = Random.Range(boundary.Left, boundary.Right);
+                transform.position = new Vector2(randomXPosition, boundary.Top);
+                break;
+
+            case "Level2":
+                float randomYPosition = Random.Range(boundary.Top, boundary.Bottom);
+                transform.position = new Vector2(boundary.Right, randomYPosition);
+                break;
+
+
+        }
+       
     }
 
     /// <summary>
@@ -50,9 +81,26 @@ public class IslandController : MonoBehaviour
     /// </summary>
     void CheckBounds()
     {
-        if (transform.position.y <= boundary.Bottom)
+
+        switch (SceneManager.GetActiveScene().name)
         {
-            Reset();
+
+            case "Main":
+                if (transform.position.y <= boundary.Bottom)
+                {
+                    Reset();
+                }
+                break;
+
+            case "Level2":
+                if (transform.position.x <= boundary.Left)
+                {
+                    Reset();
+                }
+                break;
+
+
         }
+        
     }
 }

@@ -97,9 +97,6 @@ public class OceanController : MonoBehaviour
 
 
         }
-        if (transform.position.y <= resetPoint)
-        {
-            Reset();
-        }
+      
     }
 }
